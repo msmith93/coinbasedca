@@ -12,12 +12,6 @@ Description: >-
 Transform:
 - AWS::Serverless-2016-10-31
 
-Paramters:
-  BuyFrequency:
-    Description: "Frequency of purchases (format: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#schedule)"
-    Type: String
-    Default: rate(1 days)
-
 # Resources declares the AWS resources that you want to include in the stack
 # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
 Resources:
@@ -34,6 +28,6 @@ Resources:
         CloudWatchEvent:
           Type: Schedule
           Properties:
-            Schedule: !Ref BuyFrequency
+            Schedule: rate(2 days)
       MemorySize: 128
       Timeout: 100
