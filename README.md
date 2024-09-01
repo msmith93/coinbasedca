@@ -1,2 +1,2 @@
-# coinbasedca
-Sample Repository for setting up dollar-cost-averaging in Coinbase with AWS SAM
+# Coinbase Dollar-Cost-Averaging with AWS SAM
+
