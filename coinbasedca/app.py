@@ -1,5 +1,4 @@
 import json
-import json
 from coinbase.rest import RESTClient
 import boto3
 from botocore.exceptions import ClientError
@@ -61,8 +60,13 @@ def lambda_handler(event, context):
             product_id=product.get("product_id"),
             quote_size=product.get("dollar_amount_buy")
         )
-
-        order_ids.append(order["order_id"])
+        print(order)
+        if 'success_response' in order:
+            order_id = order['success_response']['order_id']
+            order_ids.append(order_id)
+        elif 'error_response' in order:
+            error_response = order['error_response']
+            print(error_response)
 
     print(f"Orders executed: {order_ids}")
 
